@@ -1,21 +1,16 @@
 package main.seminar4;
 
-import java.util.Arrays;
-
-public class ArrayUtils<E> {
-    public E[] replaceElement(E[] array, int index1, int index2){
-        if(array == null){
+public class ArrayUtils{
+    public static <E> E[] replace(E[] arr, int index1, int index2){
+        if(arr==null){
             throw new NullPointerException();
         }
-        if(index1>=array.length || index2 >= array.length || index1 < 0 ||index2 < 0){
+        if(index1>= arr.length||index2>=arr.length||index1<0||index2<0){
             throw new IndexOutOfBoundsException();
         }
-        E[] obj2 = array.clone();
-        E obj = obj2[index1];
-        obj2[index1] = obj2[index2];
-        obj2[index2] = obj;
-
-        return obj2;
+        E item = arr[index1];
+        arr[index1] = arr[index2];
+        arr[index2] = item;
+        return arr;
     }
-
 }

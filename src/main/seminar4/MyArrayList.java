@@ -4,41 +4,47 @@ import java.util.Arrays;
 import java.util.Iterator;
 
 public class MyArrayList<E> implements Iterable<E>{
-    private final E[] array;
-    private int lastElementIndex = -1;
-
+    private E[] array;
+    private int index = -1;
     public int getCapacity(){
         return array.length;
     }
-
     public int getSize(){
-        return lastElementIndex+1;
+        return index+1;
     }
-
     public MyArrayList(E[] array) {
         this.array = array;
     }
     public void add(E item){
-        if(lastElementIndex+1 < array.length){
-            array[++lastElementIndex] = item;
+        if(index+1<array.length){
+            array[++index] = item;
         }
     }
 
     @Override
-    public Iterator<E> iterator() {
-            return new MyArrayListIterator();
+    public String toString() {
+        return Arrays.toString(array);
     }
-    class MyArrayListIterator implements Iterator<E>{
-        Iterator<E> iterator = Arrays.stream(array).iterator();
+
+    @Override
+    public Iterator<E> iterator() {
+        return new MyIterator(0);
+    }
+    class MyIterator implements Iterator<E>{
+        int current;
+
+        public MyIterator(int current) {
+            this.current = current;
+        }
+
         @Override
         public boolean hasNext() {
-            return iterator.hasNext();
+            return current<getCapacity();
         }
 
         @Override
         public E next() {
-            return iterator.next();
+            return array[current++];
         }
     }
 }
-

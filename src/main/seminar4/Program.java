@@ -4,17 +4,20 @@ import java.util.Arrays;
 
 public class Program {
     public static void main(String[] args) {
-        MyArrayList<Employee> myArrayList = new MyArrayList<>(new Employee[8]);
-        myArrayList.add(new Employee("AAA", 26));
-        System.out.println(myArrayList.getCapacity());
-        System.out.println(myArrayList.getSize());
-        for (Employee item: myArrayList) {
-            System.out.println(item);
+        MyArrayList<Employee> arr = new MyArrayList<>(new Employee[5]);
+        arr.add(new Employee("Ira", 35));
+        arr.add(new Employee("Mira", 25));
+        arr.add(new Employee("Kira", 15));
+        System.out.println(arr);
+        for(Employee i: arr){
+            System.out.println(i);
         }
-        Integer[] arr= new Integer[]{1,2,3,4,5,6};
-        String[] arr2= new String[]{"aw", "asdad", "dasdasd", "ZXc"};
-        ArrayUtils<Integer> arrayUtils = new ArrayUtils<>();
-        Integer[] ares = arrayUtils.replaceElement(arr, 1, 3);
-        System.out.println(Arrays.toString(ares));
+        Integer[] array1 = new Integer[] {1,2,3,4,5,6,7,8};
+        String[] array2 = new String[] {"AAA","SSS","DDD","FFF"};
+        ArrayUtils.replace(array1, 0, 4);
+        System.out.println(Arrays.toString(array1));
+        ArrayUtils.replace(array2, 0, 3);
+        System.out.println(Arrays.toString(array2));
     }
+
 }

@@ -2,7 +2,7 @@ package main.seminar4;
 
 public class Employee {
     private String name;
-    private  int age;
+    private int age;
 
     public String getName() {
         return name;
@@ -26,7 +26,10 @@ public class Employee {
     }
 
     @Override
-    public String toString(){
-        return "Employee{"+ "name = " +'\''+name+'\''+", age = " + age +'}';
+    public String toString() {
+        return "Employee{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
     }
 }

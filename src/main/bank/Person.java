@@ -1,15 +1,15 @@
 package main.bank;
 
-public class Entity implements PersonalData{
-    private final String name;
+public class Person implements PersonalData{
+    private final String fio;
     private final String inn;
 
-    public Entity (String name, String inn) {
-        this.name = name;
+    public Person(String fio, String inn) {
+        this.fio = fio;
         this.inn = inn;
     }
-    public String getName() {
-        return name;
+    public String getFio() {
+        return fio;
     }
     @Override
     public String getInn(){
@@ -19,7 +19,7 @@ public class Entity implements PersonalData{
     @Override
     public String toString() {
         return "Person{" +
-                "fio='" + name + '\'' +
+                "fio='" + fio + '\'' +
                 ", inn='" + inn + '\'' +
                 '}';
     }
